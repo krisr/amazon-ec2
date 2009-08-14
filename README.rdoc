@@ -93,7 +93,7 @@ You can verify that this setup is complete by running the 'set' in a command win
 
 === The basics
 
-The library exposes two main interface modules
+The library exposes two main interface classes:
 
   AWS::EC2::Base
   AWS::ELB::Base
