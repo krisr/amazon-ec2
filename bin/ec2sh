@@ -38,7 +38,7 @@ if ( ENV['AMAZON_ACCESS_KEY_ID'] && ENV['AMAZON_SECRET_ACCESS_KEY'] )
   The EC2 connection is wired to the class instance '@ec2'.  Make method calls
   on this to execute commands on EC2.  Adding a #to_s
   at the end of any command should give you a full String representation of the
-  response.
+  response. Similarly, the ELB connection is wired to the class instance '@elb'.
 
     Examples to try:
 
