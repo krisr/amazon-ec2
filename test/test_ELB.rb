@@ -10,13 +10,13 @@
 
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-context "AWS::EC2::Base" do
+context "AWS::ELB::Base" do
 
   before do
     @attrs = { :access_key_id => "not a key",
-               :secret_access_key => "not a secret",
-               :use_ssl => true,
-               :server => "foo.example.com"}
+                    :secret_access_key => "not a secret",
+                    :use_ssl => true,
+                    :server => "foo.example.com"}
   end
 
   specify "attribute readers should be available" do
@@ -28,7 +28,7 @@ context "AWS::EC2::Base" do
   end
 
   specify "should work with insecure connections as well" do
-    @ec2 = AWS::EC2::Base.new( @attrs.merge(:use_ssl => false) )
+    @ec2 = AWS::EC2::Base.new( @attrs.merge(:use_ssl=>false) )
 
     @ec2.use_ssl.should.equal false
     @ec2.port.should.equal 80
@@ -43,10 +43,9 @@ context "AWS::EC2::Base" do
     @ec2.server.should.equal "foo.example.com"
   end
 
-  
-  specify "api_version should be the same as AWS::EC2::API_VERSION" do
-    @elb = AWS::EC2::Base.new( @attrs )
-    @elb.api_version.should == AWS::EC2::API_VERSION
+  specify "api_version should be the same as AWS::ELB::API_VERSION" do
+    @elb = AWS::ELB::Base.new( @attrs )
+    @elb.api_version.should == AWS::ELB::API_VERSION
   end
 
 end
